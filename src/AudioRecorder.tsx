@@ -146,6 +146,8 @@ export default class AudioRecorder extends React.Component<AudioRecorderProps, A
 
 
   // onDownloadClick = () => downloadBlob(this.state.audioData, this.props.filename);
+  onSendData = () => axios.post(this.props.apiEndPoint, this.state.audioData, this.props.config)
+    .then(res => console.log('Response from AudioRecorder: ', res.data));
 
   onButtonClick = (event: React.SyntheticEvent<HTMLButtonElement>) => {
     if (this.state.audioData) {
@@ -194,10 +196,7 @@ export default class AudioRecorder extends React.Component<AudioRecorderProps, A
         {this.state.audioData && this.props.downloadable &&
           <button
             className="AudioRecorder-download"
-            onClick={() => async function sendData(apiEndpoint, data, config) {
-              await axios.post(apiEndpoint, data, config)
-                .then(res => console.log('Response from AudioRecorder: ', res.data));
-            }}
+            onClick={this.onSendData}
           >
             {this.props.downloadLabel}
           </button>
