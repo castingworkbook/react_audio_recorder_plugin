@@ -1,6 +1,6 @@
 import * as React from 'react';
 import WAVEInterface from './waveInterface';
-import downloadBlob from './downloadBlob';
+import axios from 'axios';
 
 interface AudioRecorderChangeEvent {
   duration: number,
@@ -27,6 +27,8 @@ interface AudioRecorderProps {
   recordingLabel?: string,
   removeLabel?: string,
   downloadLabel?: string,
+  apiEndPoint?: string,
+  config?: Object,
 };
 
 interface AudioRecorderState {
@@ -55,7 +57,14 @@ export default class AudioRecorder extends React.Component<AudioRecorderProps, A
     recordLabel: '● Record',
     recordingLabel: '● Recording',
     removeLabel: '✖ Remove',
-    downloadLabel: '\ud83d\udcbe Save' // unicode floppy disk
+    downloadLabel: '\ud83d\udcbe Save', // unicode floppy disk
+    apiEndPoint: 'http://127.0.0.1:5000/',
+    config: {
+      headers: {
+        "Content-Type": "application/json;charset=UTF-8",
+        "Access-Control-Allow-Origin": "*",
+      }
+    }
   };
 
   componentWillReceiveProps(nextProps) {
@@ -135,7 +144,12 @@ export default class AudioRecorder extends React.Component<AudioRecorderProps, A
     });
   };
 
-  onDownloadClick = () => downloadBlob(this.state.audioData, this.props.filename);
+
+  // onDownloadClick = () => downloadBlob(this.state.audioData, this.props.filename);
+  onDownloadClick = () => async function sendData(apiEndpoint, data, config) {
+    await axios.post(apiEndpoint, data, config)
+      .then(res => console.log('Response from AudioRecorder: ', res.data));
+  }
 
   onButtonClick = (event: React.SyntheticEvent<HTMLButtonElement>) => {
     if (this.state.audioData) {
