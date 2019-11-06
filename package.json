@@ -1,6 +1,6 @@
 {
   "name": "react-audio-recorder",
-  "version": "2.1.0",
+  "version": "3.0.0",
   "description": "Audio Recorder",
   "main": "dist/AudioRecorder.min.js",
   "types": "dist/AudioRecorder.d.ts",
