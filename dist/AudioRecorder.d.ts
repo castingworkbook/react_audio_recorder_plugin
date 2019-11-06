@@ -19,6 +19,8 @@ interface AudioRecorderProps {
     recordingLabel?: string;
     removeLabel?: string;
     downloadLabel?: string;
+    apiEndPoint?: string;
+    config?: Object;
 }
 interface AudioRecorderState {
     isRecording: boolean;
@@ -40,6 +42,13 @@ export default class AudioRecorder extends React.Component<AudioRecorderProps, A
         recordingLabel: string;
         removeLabel: string;
         downloadLabel: string;
+        apiEndPoint: string;
+        config: {
+            headers: {
+                "Content-Type": string;
+                "Access-Control-Allow-Origin": string;
+            };
+        };
     };
     componentWillReceiveProps(nextProps: any): void;
     componentWillMount(): void;
@@ -50,7 +59,7 @@ export default class AudioRecorder extends React.Component<AudioRecorderProps, A
     stopPlayback(): void;
     onAudioEnded: () => void;
     onRemoveClick: () => void;
-    onDownloadClick: () => HTMLAnchorElement;
+    onDownloadClick: () => (apiEndpoint: any, data: any, config: any) => Promise<void>;
     onButtonClick: (event: React.SyntheticEvent<HTMLButtonElement>) => void;
     render(): JSX.Element;
 }
