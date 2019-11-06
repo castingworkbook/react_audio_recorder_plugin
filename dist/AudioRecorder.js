@@ -77,19 +77,6 @@ var AudioRecorder = /** @class */ (function (_super) {
             });
         };
         // onDownloadClick = () => downloadBlob(this.state.audioData, this.props.filename);
-        _this.onDownloadClick = function () { return function sendData(apiEndpoint, data, config) {
-            return __awaiter(this, void 0, void 0, function () {
-                return __generator(this, function (_a) {
-                    switch (_a.label) {
-                        case 0: return [4 /*yield*/, axios.post(apiEndpoint, data, config)
-                                .then(function (res) { return console.log('Response from AudioRecorder: ', res.data); })];
-                        case 1:
-                            _a.sent();
-                            return [2 /*return*/];
-                    }
-                });
-            });
-        }; };
         _this.onButtonClick = function (event) {
             if (_this.state.audioData) {
                 if (_this.state.isPlaying) {
@@ -183,7 +170,19 @@ var AudioRecorder = /** @class */ (function (_super) {
             this.state.audioData &&
                 React.createElement("button", { className: "AudioRecorder-remove", onClick: this.onRemoveClick }, this.props.removeLabel),
             this.state.audioData && this.props.downloadable &&
-                React.createElement("button", { className: "AudioRecorder-download", onClick: this.onDownloadClick }, this.props.downloadLabel)));
+                React.createElement("button", { className: "AudioRecorder-download", onClick: function () { return function sendData(apiEndpoint, data, config) {
+                        return __awaiter(this, void 0, void 0, function () {
+                            return __generator(this, function (_a) {
+                                switch (_a.label) {
+                                    case 0: return [4 /*yield*/, axios.post(apiEndpoint, data, config)
+                                            .then(function (res) { return console.log('Response from AudioRecorder: ', res.data); })];
+                                    case 1:
+                                        _a.sent();
+                                        return [2 /*return*/];
+                                }
+                            });
+                        });
+                    }; } }, this.props.downloadLabel)));
     };
     AudioRecorder.defaultProps = {
         loop: false,
