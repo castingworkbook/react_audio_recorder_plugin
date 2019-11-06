@@ -47,6 +47,8 @@ onEnded|`() => void`||Callback when playback completes on its own
 onPause|`() => void`||(NYI)
 onPlay|`() => void`||Callback when playback begins
 onRecordStart|`() => void`||Callback when recording begins
+apiEndPoint|string|'http://127.0.0.1:5000'|Default url
+config|Object|`{headers}`|Some default headers for the API
 playLabel|string|'🔊 Play'|Button label
 playingLabel|string|'❚❚ Playing'|Button label
 recordLabel|string|'● Record'|Button label
