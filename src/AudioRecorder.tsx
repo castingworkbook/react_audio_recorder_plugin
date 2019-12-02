@@ -171,14 +171,14 @@ export default class AudioRecorder extends React.Component<AudioRecorderProps, A
     return (
       <div className="AudioRecorder">
         <Button variant="contained" color="secondary">
-          className={
+          {/* className={
             [
               'AudioRecorder-button',
               this.state.audioData ? 'hasAudio' : '',
               this.state.isPlaying ? 'isPlaying' : '',
               this.state.isRecording ? 'isRecording' : '',
             ].join(' ')
-          }
+          } */}
           onClick={this.onButtonClick}
           >
             {this.state.audioData && !this.state.isPlaying && this.props.playLabel}
