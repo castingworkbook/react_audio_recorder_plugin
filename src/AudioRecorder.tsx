@@ -1,5 +1,6 @@
 import * as React from 'react';
 import WAVEInterface from './waveInterface';
+import Button from '@material-ui/core/Button';
 import axios from 'axios';
 
 interface AudioRecorderChangeEvent {
@@ -169,7 +170,7 @@ export default class AudioRecorder extends React.Component<AudioRecorderProps, A
   render() {
     return (
       <div className="AudioRecorder">
-        <button
+        <Button variant="contained" color="secondary">
           className={
             [
               'AudioRecorder-button',
@@ -179,12 +180,12 @@ export default class AudioRecorder extends React.Component<AudioRecorderProps, A
             ].join(' ')
           }
           onClick={this.onButtonClick}
-        >
-          {this.state.audioData && !this.state.isPlaying && this.props.playLabel}
+          >
+            {this.state.audioData && !this.state.isPlaying && this.props.playLabel}
           {this.state.audioData && this.state.isPlaying && this.props.playingLabel}
           {!this.state.audioData && !this.state.isRecording && this.props.recordLabel}
           {!this.state.audioData && this.state.isRecording && this.props.recordingLabel}
-        </button>
+        </Button>
         {this.state.audioData &&
           <button
             className="AudioRecorder-remove"
