@@ -170,6 +170,7 @@ export default class AudioRecorder extends React.Component<AudioRecorderProps, A
   render() {
     return (
       <div className="AudioRecorder">
+        <p>test</p>
         <Button variant="contained" color="secondary">
           {/* className={
             [
