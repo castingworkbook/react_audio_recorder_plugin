@@ -13,15 +13,27 @@ var __extends = (this && this.__extends) || (function () {
 })();
 import * as React from 'react';
 import WAVEInterface from './waveInterface';
+import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import axios from 'axios';
 ;
 ;
+var useStyles = makeStyles({
+    recordButton: {
+        width: 100,
+        height: 100,
+        border: '2px solid red',
+        borderRadius: '50%',
+        backgroundColor: 'red',
+        color: 'white'
+    }
+});
 var AudioRecorder = /** @class */ (function (_super) {
     __extends(AudioRecorder, _super);
     function AudioRecorder() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.waveInterface = new WAVEInterface();
+        _this.classes = useStyles();
         _this.state = {
             isRecording: false,
             isPlaying: false,
@@ -44,7 +56,7 @@ var AudioRecorder = /** @class */ (function (_super) {
         };
         // onDownloadClick = () => downloadBlob(this.state.audioData, this.props.filename);
         _this.onSendData = function () { return axios.post(_this.props.apiEndPoint, _this.state.audioData, _this.props.config)
-            .then(function (res) { return console.log('Response from AudioRecorder: ', res.data); }); };
+            .then(function (res) { return res.data; }); };
         _this.onButtonClick = function (event) {
             if (_this.state.audioData) {
                 if (_this.state.isPlaying) {
@@ -125,11 +137,7 @@ var AudioRecorder = /** @class */ (function (_super) {
     };
     AudioRecorder.prototype.render = function () {
         return (React.createElement("div", { className: "AudioRecorder" },
-            React.createElement("p", null, "test"),
-            React.createElement(Button, { variant: "contained", color: "secondary" },
-                "onClick=",
-                this.onButtonClick,
-                ">",
+            React.createElement(Button, { variant: "contained", color: "secondary", onClick: this.onButtonClick, className: this.classes.re },
                 this.state.audioData && !this.state.isPlaying && this.props.playLabel,
                 this.state.audioData && this.state.isPlaying && this.props.playingLabel,
                 !this.state.audioData && !this.state.isRecording && this.props.recordLabel,

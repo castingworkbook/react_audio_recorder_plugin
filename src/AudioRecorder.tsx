@@ -1,5 +1,6 @@
 import * as React from 'react';
 import WAVEInterface from './waveInterface';
+import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import axios from 'axios';
 
@@ -21,6 +22,7 @@ interface AudioRecorderProps {
   onPause?: () => void,
   onPlay?: () => void,
   onRecordStart?: () => void,
+  classes: () => void,
 
   playLabel?: string,
   playingLabel?: string,
@@ -38,8 +40,21 @@ interface AudioRecorderState {
   audioData?: Blob
 };
 
+const useStyles = makeStyles({
+  recordButton: {
+    width: 100,
+    height: 100,
+    border: '2px solid red',
+    borderRadius: '50%',
+    backgroundColor: 'red',
+    color: 'white'
+  }
+});
+
+
 export default class AudioRecorder extends React.Component<AudioRecorderProps, AudioRecorderState> {
   waveInterface = new WAVEInterface();
+  classes = useStyles();
 
   state: AudioRecorderState = {
     isRecording: false,
@@ -148,7 +163,7 @@ export default class AudioRecorder extends React.Component<AudioRecorderProps, A
 
   // onDownloadClick = () => downloadBlob(this.state.audioData, this.props.filename);
   onSendData = () => axios.post(this.props.apiEndPoint, this.state.audioData, this.props.config)
-    .then(res => console.log('Response from AudioRecorder: ', res.data));
+    .then(res => res.data);
 
   onButtonClick = (event: React.SyntheticEvent<HTMLButtonElement>) => {
     if (this.state.audioData) {
@@ -170,8 +185,12 @@ export default class AudioRecorder extends React.Component<AudioRecorderProps, A
   render() {
     return (
       <div className="AudioRecorder">
-        <p>test</p>
-        <Button variant="contained" color="secondary">
+        <Button
+          variant="contained"
+          color="secondary"
+          onClick={this.onButtonClick}
+          className={this.classes.re}
+        >
           {/* className={
             [
               'AudioRecorder-button',
@@ -180,9 +199,7 @@ export default class AudioRecorder extends React.Component<AudioRecorderProps, A
               this.state.isRecording ? 'isRecording' : '',
             ].join(' ')
           } */}
-          onClick={this.onButtonClick}
-          >
-            {this.state.audioData && !this.state.isPlaying && this.props.playLabel}
+          {this.state.audioData && !this.state.isPlaying && this.props.playLabel}
           {this.state.audioData && this.state.isPlaying && this.props.playingLabel}
           {!this.state.audioData && !this.state.isRecording && this.props.recordLabel}
           {!this.state.audioData && this.state.isRecording && this.props.recordingLabel}
