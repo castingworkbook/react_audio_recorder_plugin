@@ -1,6 +1,5 @@
 import * as React from 'react';
 import WAVEInterface from './waveInterface';
-import MicIcon from '@material-ui/icons/Mic';
 interface AudioRecorderProps {
     initialAudio?: Blob;
     downloadable?: boolean;
@@ -36,12 +35,12 @@ export default class AudioRecorder extends React.Component<AudioRecorderProps, A
         className: string;
         style: {};
         filename: string;
-        playLabel: string;
-        playingLabel: string;
-        recordLabel: (typeof MicIcon)[];
-        recordingLabel: string;
-        removeLabel: string;
-        downloadLabel: string;
+        playLabel: JSX.Element[];
+        playingLabel: JSX.Element[];
+        recordLabel: JSX.Element[];
+        recordingLabel: JSX.Element[];
+        removeLabel: JSX.Element[];
+        downloadLabel: JSX.Element[];
         apiEndPoint: string;
         config: {
             headers: {

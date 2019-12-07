@@ -15,6 +15,11 @@ import * as React from 'react';
 import WAVEInterface from './waveInterface';
 import Button from '@material-ui/core/Button';
 import MicIcon from '@material-ui/icons/Mic';
+import SaveIcon from '@material-ui/icons/Save';
+import GraphicEqIcon from '@material-ui/icons/GraphicEq';
+import DeleteIcon from '@material-ui/icons/Delete';
+import PlayArrowIcon from '@material-ui/icons/PlayArrow';
+import PauseIcon from '@material-ui/icons/Pause';
 import axios from 'axios';
 ;
 ;
@@ -165,12 +170,12 @@ var AudioRecorder = /** @class */ (function (_super) {
         className: '',
         style: {},
         filename: 'output.wav',
-        playLabel: '🔊 Play',
-        playingLabel: '❚❚ Playing',
-        recordLabel: [MicIcon],
-        recordingLabel: '● Recording',
-        removeLabel: '✖ Remove',
-        downloadLabel: '\ud83d\udcbe Save',
+        playLabel: [React.createElement(PlayArrowIcon, null)],
+        playingLabel: [React.createElement(PauseIcon, null)],
+        recordLabel: [React.createElement(MicIcon, null)],
+        recordingLabel: [React.createElement(GraphicEqIcon, null)],
+        removeLabel: [React.createElement(DeleteIcon, null)],
+        downloadLabel: [React.createElement(SaveIcon, null)],
         apiEndPoint: 'http://127.0.0.1:5000/',
         config: {
             headers: {
