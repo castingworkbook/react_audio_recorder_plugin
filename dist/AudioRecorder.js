@@ -4,7 +4,7 @@ var __extends = (this && this.__extends) || (function () {
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
             function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
         return extendStatics(d, b);
-    }
+    };
     return function (d, b) {
         extendStatics(d, b);
         function __() { this.constructor = d; }
@@ -13,6 +13,7 @@ var __extends = (this && this.__extends) || (function () {
 })();
 import * as React from 'react';
 import WAVEInterface from './waveInterface';
+import Button from '@material-ui/core/Button';
 import axios from 'axios';
 ;
 ;
@@ -124,12 +125,11 @@ var AudioRecorder = /** @class */ (function (_super) {
     };
     AudioRecorder.prototype.render = function () {
         return (React.createElement("div", { className: "AudioRecorder" },
-            React.createElement("button", { className: [
-                    'AudioRecorder-button',
-                    this.state.audioData ? 'hasAudio' : '',
-                    this.state.isPlaying ? 'isPlaying' : '',
-                    this.state.isRecording ? 'isRecording' : '',
-                ].join(' '), onClick: this.onButtonClick },
+            React.createElement("p", null, "test"),
+            React.createElement(Button, { variant: "contained", color: "secondary" },
+                "onClick=",
+                this.onButtonClick,
+                ">",
                 this.state.audioData && !this.state.isPlaying && this.props.playLabel,
                 this.state.audioData && this.state.isPlaying && this.props.playingLabel,
                 !this.state.audioData && !this.state.isRecording && this.props.recordLabel,
