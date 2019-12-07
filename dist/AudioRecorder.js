@@ -167,7 +167,7 @@ var AudioRecorder = /** @class */ (function (_super) {
         filename: 'output.wav',
         playLabel: '🔊 Play',
         playingLabel: '❚❚ Playing',
-        recordLabel: [React.createElement(MicIcon, null)],
+        recordLabel: [MicIcon],
         recordingLabel: '● Recording',
         removeLabel: '✖ Remove',
         downloadLabel: '\ud83d\udcbe Save',
