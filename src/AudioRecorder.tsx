@@ -2,11 +2,6 @@ import * as React from 'react';
 import WAVEInterface from './waveInterface';
 import Button from '@material-ui/core/Button';
 import MicIcon from '@material-ui/icons/Mic';
-import GraphicEqIcon from '@material-ui/icons/GraphicEq';
-import DeleteIcon from '@material-ui/icons/Delete';
-import PlayArrowIcon from '@material-ui/icons/PlayArrow';
-import PauseIcon from '@material-ui/icons/Pause';
-import SaveIcon from '@material-ui/icons/Save';
 import axios from 'axios';
 
 interface AudioRecorderChangeEvent {
@@ -58,12 +53,12 @@ export default class AudioRecorder extends React.Component<AudioRecorderProps, A
     className: '',
     style: {},
     filename: 'output.wav',
-    playLabel: [<PlayArrowIcon />],
-    playingLabel: [<PauseIcon />],
+    playLabel: '🔊 Play',
+    playingLabel: '❚❚ Playing',
     recordLabel: [<MicIcon />],
-    recordingLabel: [<GraphicEqIcon />],
-    removeLabel: [<DeleteIcon />],
-    downloadLabel: [<SaveIcon />],
+    recordingLabel: '● Recording',
+    removeLabel: '✖ Remove',
+    downloadLabel: '\ud83d\udcbe Save', // unicode floppy disk
     apiEndPoint: 'http://127.0.0.1:5000/',
     config: {
       headers: {

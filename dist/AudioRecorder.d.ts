@@ -35,12 +35,12 @@ export default class AudioRecorder extends React.Component<AudioRecorderProps, A
         className: string;
         style: {};
         filename: string;
-        playLabel: JSX.Element[];
-        playingLabel: JSX.Element[];
+        playLabel: string;
+        playingLabel: string;
         recordLabel: JSX.Element[];
-        recordingLabel: JSX.Element[];
-        removeLabel: JSX.Element[];
-        downloadLabel: JSX.Element[];
+        recordingLabel: string;
+        removeLabel: string;
+        downloadLabel: string;
         apiEndPoint: string;
         config: {
             headers: {
