@@ -12,7 +12,7 @@ module.exports = {
   rules: [
     {
       test: /\.css$/,
-      include: path.join(__dirname, 'src/style'),
+      include: path.join(__dirname, 'src'),
       use: [
         'style-loader',
         {
