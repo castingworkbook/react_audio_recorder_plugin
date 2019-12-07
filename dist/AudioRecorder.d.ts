@@ -13,7 +13,6 @@ interface AudioRecorderProps {
     onPause?: () => void;
     onPlay?: () => void;
     onRecordStart?: () => void;
-    classes: () => void;
     playLabel?: string;
     playingLabel?: string;
     recordLabel?: string;
@@ -30,7 +29,6 @@ interface AudioRecorderState {
 }
 export default class AudioRecorder extends React.Component<AudioRecorderProps, AudioRecorderState> {
     waveInterface: WAVEInterface;
-    classes: Record<"recordButton", string>;
     state: AudioRecorderState;
     static defaultProps: {
         loop: boolean;

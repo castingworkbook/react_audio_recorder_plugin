@@ -13,27 +13,16 @@ var __extends = (this && this.__extends) || (function () {
 })();
 import * as React from 'react';
 import WAVEInterface from './waveInterface';
-import { makeStyles } from '@material-ui/core/styles';
+import * as style from './style/style.css';
 import Button from '@material-ui/core/Button';
 import axios from 'axios';
 ;
 ;
-var useStyles = makeStyles({
-    recordButton: {
-        width: 100,
-        height: 100,
-        border: '2px solid red',
-        borderRadius: '50%',
-        backgroundColor: 'red',
-        color: 'white'
-    }
-});
 var AudioRecorder = /** @class */ (function (_super) {
     __extends(AudioRecorder, _super);
     function AudioRecorder() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.waveInterface = new WAVEInterface();
-        _this.classes = useStyles();
         _this.state = {
             isRecording: false,
             isPlaying: false,
@@ -137,7 +126,7 @@ var AudioRecorder = /** @class */ (function (_super) {
     };
     AudioRecorder.prototype.render = function () {
         return (React.createElement("div", { className: "AudioRecorder" },
-            React.createElement(Button, { variant: "contained", color: "secondary", onClick: this.onButtonClick, className: this.classes.re },
+            React.createElement(Button, { variant: "contained", color: "secondary", onClick: this.onButtonClick, className: style.recordButton },
                 this.state.audioData && !this.state.isPlaying && this.props.playLabel,
                 this.state.audioData && this.state.isPlaying && this.props.playingLabel,
                 !this.state.audioData && !this.state.isRecording && this.props.recordLabel,

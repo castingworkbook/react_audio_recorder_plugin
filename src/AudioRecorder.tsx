@@ -1,6 +1,6 @@
 import * as React from 'react';
 import WAVEInterface from './waveInterface';
-import { makeStyles } from '@material-ui/core/styles';
+import * as style from './style/style.css';
 import Button from '@material-ui/core/Button';
 import axios from 'axios';
 
@@ -22,7 +22,6 @@ interface AudioRecorderProps {
   onPause?: () => void,
   onPlay?: () => void,
   onRecordStart?: () => void,
-  classes: () => void,
 
   playLabel?: string,
   playingLabel?: string,
@@ -40,21 +39,9 @@ interface AudioRecorderState {
   audioData?: Blob
 };
 
-const useStyles = makeStyles({
-  recordButton: {
-    width: 100,
-    height: 100,
-    border: '2px solid red',
-    borderRadius: '50%',
-    backgroundColor: 'red',
-    color: 'white'
-  }
-});
-
 
 export default class AudioRecorder extends React.Component<AudioRecorderProps, AudioRecorderState> {
   waveInterface = new WAVEInterface();
-  classes = useStyles();
 
   state: AudioRecorderState = {
     isRecording: false,
@@ -189,7 +176,7 @@ export default class AudioRecorder extends React.Component<AudioRecorderProps, A
           variant="contained"
           color="secondary"
           onClick={this.onButtonClick}
-          className={this.classes.re}
+          className={style.recordButton}
         >
           {/* className={
             [
