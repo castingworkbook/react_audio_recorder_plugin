@@ -126,20 +126,37 @@ var AudioRecorder = /** @class */ (function (_super) {
         return (React.createElement("div", { className: "AudioRecorder" },
             React.createElement(Button, { variant: "contained", color: "secondary", onClick: this.onButtonClick, style: {
                     backgroundColor: 'red',
-                    width: '100px',
-                    height: '100px',
+                    width: '90px',
+                    height: '90px',
                     borderRadius: '50%',
                     color: 'white',
-                    border: '2px solid red',
+                    border: '2px solid white',
+                    margin: '2rem'
                 } },
                 this.state.audioData && !this.state.isPlaying && this.props.playLabel,
                 this.state.audioData && this.state.isPlaying && this.props.playingLabel,
                 !this.state.audioData && !this.state.isRecording && this.props.recordLabel,
                 !this.state.audioData && this.state.isRecording && this.props.recordingLabel),
             this.state.audioData &&
-                React.createElement("button", { className: "AudioRecorder-remove", onClick: this.onRemoveClick }, this.props.removeLabel),
+                React.createElement("button", { className: "AudioRecorder-remove", onClick: this.onRemoveClick, style: {
+                        backgroundColor: 'gold',
+                        width: '90px',
+                        height: '90px',
+                        borderRadius: '50%',
+                        color: 'white',
+                        border: '2px solid white',
+                        margin: '2rem'
+                    } }, this.props.removeLabel),
             this.state.audioData && this.props.downloadable &&
-                React.createElement("button", { className: "AudioRecorder-download", onClick: this.onSendData }, this.props.downloadLabel)));
+                React.createElement("button", { className: "AudioRecorder-download", onClick: this.onSendData, style: {
+                        backgroundColor: 'dodgerblue',
+                        width: '90px',
+                        height: '90px',
+                        borderRadius: '50%',
+                        color: 'white',
+                        border: '2px solid white',
+                        margin: '2rem'
+                    } }, this.props.downloadLabel)));
     };
     AudioRecorder.defaultProps = {
         loop: false,

@@ -174,11 +174,12 @@ export default class AudioRecorder extends React.Component<AudioRecorderProps, A
           onClick={this.onButtonClick}
           style={{
             backgroundColor: 'red',
-            width: '100px',
-            height: '100px',
+            width: '90px',
+            height: '90px',
             borderRadius: '50%',
             color: 'white',
-            border: '2px solid red',
+            border: '2px solid white',
+            margin: '2rem'
           }}
         >
           {/* className={
@@ -198,6 +199,15 @@ export default class AudioRecorder extends React.Component<AudioRecorderProps, A
           <button
             className="AudioRecorder-remove"
             onClick={this.onRemoveClick}
+            style={{
+              backgroundColor: 'gold',
+              width: '90px',
+              height: '90px',
+              borderRadius: '50%',
+              color: 'white',
+              border: '2px solid white',
+              margin: '2rem'
+            }}
           >
             {this.props.removeLabel}
           </button>
@@ -206,6 +216,15 @@ export default class AudioRecorder extends React.Component<AudioRecorderProps, A
           <button
             className="AudioRecorder-download"
             onClick={this.onSendData}
+            style={{
+              backgroundColor: 'dodgerblue',
+              width: '90px',
+              height: '90px',
+              borderRadius: '50%',
+              color: 'white',
+              border: '2px solid white',
+              margin: '2rem'
+            }}
           >
             {this.props.downloadLabel}
           </button>
