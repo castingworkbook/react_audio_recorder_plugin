@@ -2,6 +2,11 @@ import * as React from 'react';
 import WAVEInterface from './waveInterface';
 import Button from '@material-ui/core/Button';
 import MicIcon from '@material-ui/icons/Mic';
+import GraphicEqIcon from '@material-ui/icons/GraphicEq';
+import DeleteIcon from '@material-ui/icons/Delete';
+import PlayArrowIcon from '@material-ui/icons/PlayArrow';
+import PauseIcon from '@material-ui/icons/Pause';
+import SaveIcon from '@material-ui/icons/Save';
 import axios from 'axios';
 
 interface AudioRecorderChangeEvent {
@@ -53,12 +58,12 @@ export default class AudioRecorder extends React.Component<AudioRecorderProps, A
     className: '',
     style: {},
     filename: 'output.wav',
-    playLabel: '🔊 Play',
-    playingLabel: '❚❚ Playing',
+    playLabel: [<PlayArrowIcon />],
+    playingLabel: [<PauseIcon />],
     recordLabel: [<MicIcon />],
-    recordingLabel: '● Recording',
-    removeLabel: '✖ Remove',
-    downloadLabel: '\ud83d\udcbe Save', // unicode floppy disk
+    recordingLabel: [<GraphicEqIcon />],
+    removeLabel: [<DeleteIcon />],
+    downloadLabel: [<SaveIcon />],
     apiEndPoint: 'http://127.0.0.1:5000/',
     config: {
       headers: {
@@ -175,8 +180,8 @@ export default class AudioRecorder extends React.Component<AudioRecorderProps, A
           onClick={this.onButtonClick}
           style={{
             backgroundColor: 'red',
-            width: '90px',
-            height: '90px',
+            width: '80px',
+            height: '80px',
             borderRadius: '50%',
             color: 'white',
             border: '2px solid white',
@@ -202,8 +207,8 @@ export default class AudioRecorder extends React.Component<AudioRecorderProps, A
             onClick={this.onRemoveClick}
             style={{
               backgroundColor: 'gold',
-              width: '90px',
-              height: '90px',
+              width: '80px',
+              height: '80px',
               borderRadius: '50%',
               color: 'white',
               border: '2px solid white',
@@ -219,8 +224,8 @@ export default class AudioRecorder extends React.Component<AudioRecorderProps, A
             onClick={this.onSendData}
             style={{
               backgroundColor: 'dodgerblue',
-              width: '90px',
-              height: '90px',
+              width: '80px',
+              height: '80px',
               borderRadius: '50%',
               color: 'white',
               border: '2px solid white',

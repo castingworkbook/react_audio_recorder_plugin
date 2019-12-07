@@ -15,6 +15,11 @@ import * as React from 'react';
 import WAVEInterface from './waveInterface';
 import Button from '@material-ui/core/Button';
 import MicIcon from '@material-ui/icons/Mic';
+import GraphicEqIcon from '@material-ui/icons/GraphicEq';
+import DeleteIcon from '@material-ui/icons/Delete';
+import PlayArrowIcon from '@material-ui/icons/PlayArrow';
+import PauseIcon from '@material-ui/icons/Pause';
+import SaveIcon from '@material-ui/icons/Save';
 import axios from 'axios';
 ;
 ;
@@ -127,8 +132,8 @@ var AudioRecorder = /** @class */ (function (_super) {
         return (React.createElement("div", { className: "AudioRecorder" },
             React.createElement(Button, { variant: "contained", color: "secondary", onClick: this.onButtonClick, style: {
                     backgroundColor: 'red',
-                    width: '90px',
-                    height: '90px',
+                    width: '80px',
+                    height: '80px',
                     borderRadius: '50%',
                     color: 'white',
                     border: '2px solid white',
@@ -141,8 +146,8 @@ var AudioRecorder = /** @class */ (function (_super) {
             this.state.audioData &&
                 React.createElement("button", { className: "AudioRecorder-remove", onClick: this.onRemoveClick, style: {
                         backgroundColor: 'gold',
-                        width: '90px',
-                        height: '90px',
+                        width: '80px',
+                        height: '80px',
                         borderRadius: '50%',
                         color: 'white',
                         border: '2px solid white',
@@ -151,8 +156,8 @@ var AudioRecorder = /** @class */ (function (_super) {
             this.state.audioData && this.props.downloadable &&
                 React.createElement("button", { className: "AudioRecorder-download", onClick: this.onSendData, style: {
                         backgroundColor: 'dodgerblue',
-                        width: '90px',
-                        height: '90px',
+                        width: '80px',
+                        height: '80px',
                         borderRadius: '50%',
                         color: 'white',
                         border: '2px solid white',
@@ -165,12 +170,12 @@ var AudioRecorder = /** @class */ (function (_super) {
         className: '',
         style: {},
         filename: 'output.wav',
-        playLabel: '🔊 Play',
-        playingLabel: '❚❚ Playing',
+        playLabel: [React.createElement(PlayArrowIcon, null)],
+        playingLabel: [React.createElement(PauseIcon, null)],
         recordLabel: [React.createElement(MicIcon, null)],
-        recordingLabel: '● Recording',
-        removeLabel: '✖ Remove',
-        downloadLabel: '\ud83d\udcbe Save',
+        recordingLabel: [React.createElement(GraphicEqIcon, null)],
+        removeLabel: [React.createElement(DeleteIcon, null)],
+        downloadLabel: [React.createElement(SaveIcon, null)],
         apiEndPoint: 'http://127.0.0.1:5000/',
         config: {
             headers: {
