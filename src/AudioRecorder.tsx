@@ -1,6 +1,7 @@
 import * as React from 'react';
 import WAVEInterface from './waveInterface';
 import Button from '@material-ui/core/Button';
+import MicIcon from '@material-ui/icons/Mic';
 import axios from 'axios';
 
 interface AudioRecorderChangeEvent {
@@ -54,7 +55,7 @@ export default class AudioRecorder extends React.Component<AudioRecorderProps, A
     filename: 'output.wav',
     playLabel: '🔊 Play',
     playingLabel: '❚❚ Playing',
-    recordLabel: '● Record',
+    recordLabel: MicIcon,
     recordingLabel: '● Recording',
     removeLabel: '✖ Remove',
     downloadLabel: '\ud83d\udcbe Save', // unicode floppy disk
