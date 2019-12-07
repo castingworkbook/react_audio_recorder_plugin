@@ -1,6 +1,5 @@
 import * as React from 'react';
 import WAVEInterface from './waveInterface';
-import * as style from './style/style.css';
 import Button from '@material-ui/core/Button';
 import axios from 'axios';
 
@@ -14,7 +13,6 @@ interface AudioRecorderProps {
   loop?: boolean,
   filename?: string,
   className?: string,
-  style?: Object,
 
   onAbort?: () => void,
   onChange?: (AudioRecorderChangeEvent) => void,
@@ -38,7 +36,6 @@ interface AudioRecorderState {
   isPlaying: boolean,
   audioData?: Blob
 };
-
 
 export default class AudioRecorder extends React.Component<AudioRecorderProps, AudioRecorderState> {
   waveInterface = new WAVEInterface();
@@ -71,7 +68,6 @@ export default class AudioRecorder extends React.Component<AudioRecorderProps, A
   };
 
   componentWillReceiveProps(nextProps) {
-    // handle new initialAudio being passed in
     if (
       nextProps.initialAudio &&
       nextProps.initialAudio !== this.props.initialAudio &&
@@ -176,7 +172,14 @@ export default class AudioRecorder extends React.Component<AudioRecorderProps, A
           variant="contained"
           color="secondary"
           onClick={this.onButtonClick}
-          className={style.recordButton}
+          style={{
+            backgroundColor: 'red',
+            width: '100px',
+            height: '100px',
+            borderRadius: '50%',
+            color: 'white',
+            border: '2px solid red',
+          }}
         >
           {/* className={
             [
