@@ -1,3 +1,6 @@
+const cssVariablesPlugin = require('postcss-css-variables');
+const cssVariables = require('./cssVariables');
+
 module.exports = {
   entry: './dist/AudioRecorder.js',
   output: {
@@ -9,20 +12,31 @@ module.exports = {
     react: 'React',
     'react-dom': 'ReactDOM'
   },
-  rules: [
+  plugins: [
+    ...
+    new webpack.WatchIgnorePlugin([/css\.d\.ts$/])
+  ],
+  test: /\.css$/,
+  use: [
+    require.resolve('style-loader'),
     {
-      test: /\.css$/,
-      include: path.join(__dirname, 'src'),
-      use: [
-        'style-loader',
-        {
-          loader: 'typings-for-css-modules-loader',
-          options: {
-            modules: true,
-            namedExport: true
-          }
-        }
-      ]
-    }
-  ]
+      loader: require.resolve('typings-for-css-modules-loader'),
+      options: {
+        modules: true,
+        importLoaders: 1,
+        localIdentName: '[name]__[local]___[hash:base64:5]',
+        namedExport: true,
+        camelCase: true
+      },
+    },
+  ],
+  loader: require.resolve('postcss-loader'),
+  options: {
+    ident: 'postcss',
+    plugins: () => [
+      cssVariablesPlugin({
+        variables: cssVariables
+      })
+    ],
+  },
 };
