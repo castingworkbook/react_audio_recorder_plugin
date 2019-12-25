@@ -188,14 +188,6 @@ export default class AudioRecorder extends React.Component<AudioRecorderProps, A
             margin: '2rem'
           }}
         >
-          {/* className={
-            [
-              'AudioRecorder-button',
-              this.state.audioData ? 'hasAudio' : '',
-              this.state.isPlaying ? 'isPlaying' : '',
-              this.state.isRecording ? 'isRecording' : '',
-            ].join(' ')
-          } */}
           {this.state.audioData && !this.state.isPlaying && this.props.playLabel}
           {this.state.audioData && this.state.isPlaying && this.props.playingLabel}
           {!this.state.audioData && !this.state.isRecording && this.props.recordLabel}
