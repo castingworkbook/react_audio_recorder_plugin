@@ -1,5 +1,6 @@
-const cssVariablesPlugin = require('postcss-css-variables');
-const cssVariables = require('./cssVariables');
+const webpack = require('webpack');
+// const cssVariablesPlugin = require('postcss-css-variables');
+// const cssVariables = require('./cssVariables');
 
 module.exports = {
   entry: './dist/AudioRecorder.js',
@@ -30,13 +31,4 @@ module.exports = {
       },
     },
   ],
-  loader: require.resolve('postcss-loader'),
-  options: {
-    ident: 'postcss',
-    plugins: () => [
-      cssVariablesPlugin({
-        variables: cssVariables
-      })
-    ],
-  },
 };

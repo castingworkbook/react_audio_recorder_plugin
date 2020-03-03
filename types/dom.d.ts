@@ -1,7 +1,7 @@
 interface Navigator {
-  getUserMedia: NavigatorUserMedia['getUserMedia']
-  mozGetUserMedia: NavigatorUserMedia['getUserMedia'];
-  webkitGetUserMedia: NavigatorUserMedia['getUserMedia'];
+  getUserMedia(constraints: MediaStreamConstraints, successCallback: NavigatorUserMediaSuccessCallback, errorCallback: NavigatorUserMediaErrorCallback): void;
+  mozGetUserMedia(constraints: MediaStreamConstraints, successCallback: NavigatorUserMediaSuccessCallback, errorCallback: NavigatorUserMediaErrorCallback): void;
+  webkitGetUserMedia(constraints: MediaStreamConstraints, successCallback: NavigatorUserMediaSuccessCallback, errorCallback: NavigatorUserMediaErrorCallback): void;
 }
 
 declare var webkitAudioContext: typeof AudioContext;

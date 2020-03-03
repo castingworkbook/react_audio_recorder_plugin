@@ -5,7 +5,6 @@
     "jsx": "react",
     "declaration": true,
     "typeRoots": [
-      "typings",
       "node_modules/@types"
     ],
     "lib": [

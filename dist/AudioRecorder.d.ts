@@ -59,7 +59,7 @@ export default class AudioRecorder extends React.Component<AudioRecorderProps, A
     onAudioEnded: () => void;
     onRemoveClick: () => void;
     onSendData: () => Promise<any>;
-    onButtonClick: (event: React.SyntheticEvent<HTMLButtonElement>) => void;
+    onButtonClick: (event: React.SyntheticEvent<HTMLButtonElement, Event>) => void;
     render(): JSX.Element;
 }
 export {};
